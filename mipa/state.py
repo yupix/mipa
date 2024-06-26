@@ -26,6 +26,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -62,9 +63,10 @@ from mipac.types.note import (
     INoteUpdatedDelete,
     INoteUpdatedReaction,
 )
-from mipac.utils.format import str_lower, upper_to_lower
+from mipac.utils.format import upper_to_lower
 from mipac.types.notification import INotification
 
+from mipa.utils import str_lower
 
 if TYPE_CHECKING:
     from mipa.client import Client

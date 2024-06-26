@@ -13,7 +13,7 @@ __all__ = ["Router"]
 IChannel = Literal["global", "main", "home", "local", "hybrid"]
 
 
-CHANNELS = {
+CHANNELS: dict[str, str] = {
     "global": "globalTimeline",
     "main": "main",
     "home": "homeTimeline",
@@ -33,14 +33,12 @@ class Router:
         self.__channel_handlers: dict[str, AbstractTimeline] = {}
 
     @overload
-    async def connect_channel(self, channel_list: Iterable[IChannel]):
-        ...
+    async def connect_channel(self, channel_list: Iterable[IChannel]): ...
 
     @overload
     async def connect_channel(
         self, channel_list: dict[IChannel, AbstractTimeline | None]
-    ):
-        ...
+    ): ...
 
     async def connect_channel(
         self,

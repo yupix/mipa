@@ -421,7 +421,6 @@ class BotBase(CommandManager):
         notice : NotificationFollow
         """
 
-
     async def on_achievement_earned(self, notice: NotificationAchievement):
         """
         When you earn an achievement

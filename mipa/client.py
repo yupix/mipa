@@ -215,8 +215,7 @@ class Client:
         self.core = API(url, token, log_level=log_level)
         return self.core
 
-    async def setup_hook(self) -> None:
-        ...
+    async def setup_hook(self) -> None: ...
 
     async def login(
         self, token: str, url: str, log_level: LOGING_LEVEL_TYPE | None

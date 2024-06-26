@@ -1,4 +1,5 @@
 import logging
+import re
 from typing import Any, Literal
 
 LOGING_LEVEL_TYPE = Literal[
@@ -26,6 +27,15 @@ class _MissingSentinel:
 
 
 MISSING: Any = _MissingSentinel()
+
+
+def str_lower(text: str):
+    pattern = re.compile("[A-Z]")
+    large = [i.group().lower() for i in pattern.finditer(text)]
+    result: list[Any | str] = [None] * (len(large + pattern.split(text)))
+    result[::2] = pattern.split(text)
+    result[1::2] = ["_" + i.lower() for i in large]
+    return "".join(result)
 
 
 def parse_logging_level(level: LOGING_LEVEL_TYPE):

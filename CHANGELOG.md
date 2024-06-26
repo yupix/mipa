@@ -1,6 +1,17 @@
 # Change Log
 
+## v0.4.2
 
+[compare changes](https://github.com/yupix/MiPA/compare/0.4.1...v0.4.2)
+
+### 🏡 Chore
+
+- MiPACのバージョンを0.7.0以上0.8.0まで許可するように
+  - MiPACの最低バージョンが0.7.0に変更されています。詳細は [MiPACのリリースノート](https://github.com/yupix/MiPAC/releases/tag/0.7.0) をご覧ください。
+
+### ❤️ Contributors
+
+- Yupix ([@yupix](http://github.com/yupix))
 
 ## v0.4.1
 

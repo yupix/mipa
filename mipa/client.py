@@ -79,15 +79,6 @@ class Client:
             dispatch=self.dispatch, loop=self.loop, client=self
         )
 
-    async def on_ready(self, ws: ClientWebSocketResponse):
-        """
-        on_readyのデフォルト処理
-
-        Parameters
-        ----------
-        ws : WebSocketClientProtocol
-        """
-
     def event(self, name: Optional[str] = None):
         def decorator(func: Coroutine[Any, Any, Any]):
             self.add_event(func, name)

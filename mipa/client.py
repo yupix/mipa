@@ -221,7 +221,7 @@ class Client:
         self, token: str, url: str, log_level: LOGING_LEVEL_TYPE | None
     ):
         """
-        ユーザーにログインし、ユーザー情報を取得します
+        ユーザーにログインします
 
         Parameters
         ----------
@@ -234,7 +234,6 @@ class Client:
         """
 
         core = await self.create_api_session(token, url, log_level)
-        await core.http.login()
         self.user = await core.api.get_me()
         await self.setup_hook()
 

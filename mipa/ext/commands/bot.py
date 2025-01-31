@@ -98,6 +98,15 @@ class BotBase(CommandManager):
     def _on_note(self, message):
         self.dispatch("note", message)
 
+    async def on_recconect(self, ws: ClientWebSocketResponse):
+        """
+        on_reconnectのデフォルト処理
+
+        Parameters
+        ----------
+        ws : WebSocketClientProtocol
+        """
+
     async def on_ready(self, ws: ClientWebSocketResponse):
         """
         on_readyのデフォルト処理

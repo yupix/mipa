@@ -47,7 +47,7 @@ class MyBot(Bot):
         await self._connect_channel()
 
     async def on_note(self, note: Note):
-        print(note.user.username, note.content)
+        print(note.user.username, note.text)
 
 
 if __name__ == '__main__':

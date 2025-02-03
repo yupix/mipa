@@ -49,6 +49,7 @@ from typing import (
 
 from mipac.models.emoji import CustomEmoji
 from mipac.models.user import MeDetailed, UserDetailedNotMe
+from mipac.models.note import Note
 
 from mipa import Client
 from mipa.exception import (
@@ -301,12 +302,16 @@ class BotBase(CommandManager):
     async def get_context(self, message, cmd, cls=Context) -> Context:
         return cls(message=message, bot=self, cmd=cmd)
 
-    async def progress_command(self, message):
+    async def progress_command(self, message: Note):
         for cmd in self.all_commands:
+            # テキストがない場合はスキップする
+            if message.text is None:
+                continue
+            
             ctx = await self.get_context(message, cmd)
             if cmd.cmd_type == "regex":
-                if re.search(cmd.key, message.content):
-                    hit_list = re.findall(cmd.key, message.content)
+                if re.search(cmd.key, message.text):
+                    hit_list = re.findall(cmd.key, message.text)
                     if isinstance(hit_list, list):
                         hit_list = tuple(hit_list)
 
@@ -316,7 +321,7 @@ class BotBase(CommandManager):
                         )
                     ctx.args = hit_list
                     await cmd.func.invoke(ctx)
-            elif message.content.find(cmd.key) != -1:
+            elif message.text.find(cmd.key) != -1:
                 await cmd.func.invoke(ctx)
             else:
                 continue

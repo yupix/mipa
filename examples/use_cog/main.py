@@ -27,7 +27,7 @@ class MyBot(commands.Bot):
         await self._connect_channel()
     
     async def on_note(self, note: Note):
-        print(f'{note.author.username}: {note.content}')
+        print(f'{note.user.username}: {note.content}')
     
     async def on_mention(self, notice: NotificationNote):
 

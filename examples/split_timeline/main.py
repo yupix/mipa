@@ -8,7 +8,7 @@ from mipa.ext.timelines.core import AbstractTimeline
 
 class GlobalTimeline(AbstractTimeline):
     async def on_note(self, note: Note):  # This event is only received in the global timeline notes
-        print(f'{note.author.username}: {note.content}')
+        print(f'{note.user.username}: {note.content}')
 
 class MyBot(Bot):
     def __init__(self):
@@ -25,7 +25,7 @@ class MyBot(Bot):
         await self._connect_channel()
 
     async def on_note(self, note: Note):  # This event receives all channel notes
-        print(f'{note.author.username}: {note.content}')
+        print(f'{note.user.username}: {note.content}')
 
 
 if __name__ == '__main__':

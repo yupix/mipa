@@ -43,7 +43,7 @@ class Context:
     def __init__(
         self,
         *,
-        message,
+        message: Note,
         bot: BotBase,
         args: tuple | None = None,
         kwargs=None,
@@ -62,7 +62,7 @@ class Context:
 
     @property
     def author(self) -> PartialUser:
-        return self.__message.author
+        return self.__message.user
 
     @property
     def cog(self):

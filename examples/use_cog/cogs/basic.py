@@ -9,7 +9,7 @@ class BasicCog(commands.Cog):
     
     @commands.mention_command(text='hello')
     async def hello(self, ctx: Context):
-        await ctx.message.api.action.reply(f'hello! {ctx.message.author.username}')
+        await ctx.message.api.action.reply(f'hello! {ctx.message.user.username}')
 
 
     @commands.mention_command(regex=r'(\d+) second timer')

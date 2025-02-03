@@ -98,7 +98,7 @@ from mipa.ext.timelines.core import AbstractTimeline
 
 class GlobalTimeline(AbstractTimeline):
     async def on_note(self, note: Note):
-        logger.info(f'{note.author.username}: {note.content}')
+        logger.info(f'{note.user.username}: {note.content}')
 
 class MyBot(Bot):
     def __init__(self):
